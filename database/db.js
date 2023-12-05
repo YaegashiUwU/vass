@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-    host: 'ftp://work-offertbtv1.online',
+    host: 'localhost',
     user: 'u136683694_Estadias2109',
     password: 'Tyatry9g',
     database: 'u136683694_bolsa',
