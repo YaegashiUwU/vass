@@ -11,7 +11,7 @@ app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Rutas
+
 const loginRoutes = require('./routes/login');
 const empresaRoutes = require('./routes/empresa');
 const obtenerCarrerasRoutes = require('./routes/obtenerCarreras');
