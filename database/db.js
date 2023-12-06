@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 var dbConfig = {
-    host: 'srv1267.hstgr.io',
+    host: '193.203.166.103',
     user: 'u136683694_Estadias2109',
     password: 'Tyatry9g',
     database: 'u136683694_bolsa',
@@ -10,25 +10,29 @@ var dbConfig = {
 var db;
 
 function handleDisconnect() {
-    db = mysql.createConnection(dbConfig); // Crea una nueva conexión usando los parámetros de conexión
+    db = mysql.createConnection(dbConfig);
 
-    db.connect(err => { // Intenta conectar a la base de datos
+    db.connect(err => {
         if (err) {
             console.error('Error al conectar a la base de datos:', err);
-            setTimeout(handleDisconnect, 2000); // Espera 2 segundos antes de intentar reconectar
+            setTimeout(handleDisconnect, 2000);
         } else {
             console.log('Conexión a la base de datos establecida');
         }
     });
 
-    db.on('error', err => { // Escucha errores en la conexión
+    db.on('error', function(err) {
         console.error('Error en la base de datos:', err);
-        if (err.code === 'PROTOCOL_CONNECTION_LOST') { // Si se pierde la conexión, reconecta
+        if (err.code === 'PROTOCOL_CONNECTION_LOST' || err.code === 'ECONNRESET') {
+            // Intenta reconectar
             handleDisconnect();
         } else {
-            throw err; // Si es otro tipo de error, lanza una excepción
+            console.error('Error de base de datos no manejado:', err);
+            // Aquí podrías decidir no lanzar la excepción
+            // y manejar el error de otra manera
         }
     });
+
 }
 
 handleDisconnect();
