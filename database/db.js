@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 var dbConfig = {
-    host: '193.203.166.103',
+    host: '44.226.145.213',
     user: 'u136683694_Estadias2109',
     password: 'Tyatry9g',
     database: 'u136683694_bolsa',
