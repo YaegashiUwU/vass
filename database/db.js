@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 var dbConfig = {
-    host: '193.203.166.103',
-    user: 'u136683694_Estadias2109',
-    password: 'Tyatry9g',
-    database: 'u136683694_bolsa',
+    host: 'bsnm4ydv4tlgovevtjpv-mysql.services.clever-cloud.com',
+    user: 'uxcoe3fgzcpmykfn',
+    password: 'KvGQqFKhbyv1UhSNwrDq',
+    database: 'bsnm4ydv4tlgovevtjpv',
 };
 
 var db;
